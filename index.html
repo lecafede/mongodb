@@ -1,0 +1,23 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        (async function () {
+            let response = await fetch("https://www.shazam.com/shazam/v2/ru/UA/web/-/tracks/country-chart-UA?pageSize=200&startFrom=0");
+            data = await response.json();
+            for (i = 0; i < data.chart.length; i++) {
+                var song = data.chart[i];
+                number = i + 1;
+                console.log('|' + number + '|' + " Ссылка: " + song.url)
+                console.log('|' + number + '|' + " Название песни: " + song.heading.title + ' Исполнитель: ' + song.heading.subtitle)
+            }
+        })();
+    </script>
+</body>
+</html>
